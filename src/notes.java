@@ -4,7 +4,7 @@ public class notes {
 
     final private String Notes[] = {"A","A#", "B", "C", "C#", "D", "Eb", "E", "F", "F#", "G", "G#"};
     private int note;
-    String[] currentScale = new String [8];
+    String[] currentScale = new String [8]; // save the most recent scale, helpful for chords
     public notes(){
         //empty
     }
@@ -34,6 +34,7 @@ public class notes {
     }
 
     //setter methods
+    //setMajorNotes(a) sets the currentScale[] to a major scale of 'a'
     public void setMajorNotes(String a){
         note = findIndexof(a);
         currentScale[0]= Notes[note];
@@ -46,7 +47,7 @@ public class notes {
             }
         }
     }
-
+    //setMinorNotes(a) sets the currentScale[] to a minor scale of 'a'
     public void setMinorNotes(String a){
         note = findIndexof(a);
         currentScale[0]= Notes[note];
@@ -70,6 +71,8 @@ public class notes {
         return start;
     }
 
+    //wholestep() returns a note 2 notes from the current and wraps around
+    // the end of the notes of array
     public String wholestep(int n){
         int starting_note = n;
         if(starting_note == 10) {
@@ -86,7 +89,8 @@ public class notes {
         }
 
     }
-
+     // halfstep() returns a note 1 note from a current and
+    // wraps around the end of notes of array
     public  String halfStep(int n){
         int starting_note = n;
         if(starting_note == 11) {
